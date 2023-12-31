@@ -1,0 +1,77 @@
+<section>
+    <div class="info-index">
+        <h2>Sælg med os !</h2>
+        <p>Når du vælger at sælge dit tøj med os, bidrager du til bæredygtighed ved at forlænge <br>dets levetid og minimere spild af ressourcer.  </p>
+        <div class="center-container">
+            <div class="grid1-1-1">
+              <div>
+                <p class="tal">01</p>
+                <p class="tal-text">Aflever tøjet</p>
+              </div>
+              <div>
+                <p class="tal">02</p>
+                <p class="tal-text">Udstilles i 2 måneder</p>
+              </div>
+              <div>
+                <p class="tal">03</p>
+                <p class="tal-text">50% er din andel</p>
+              </div>
+            </div>
+          </div>
+    <a href="#">Læs mere her</a>
+    </div>
+</section>
+
+<style>
+    .info-index{
+        align-items: center;
+        text-align: center;
+        align-self: center;
+        padding-top: 100px;
+    }
+    .center-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+    .grid1-1-1{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 70px;
+    }
+    .tal {
+  font-size: 2rem;
+  font-family: var(--font-family-medium);
+}
+
+.tal-text {
+  font-size: 1.5rem;
+  font-family: var(--font-family-medium);
+}
+
+    h2{
+        font-family: var(--font-family-medium);
+  font-size: 2rem;
+  color: var(--primary-text);
+  padding-bottom: 15px;
+    }
+    p{
+        font-size: 1.4rem;
+        padding-bottom: 30px;
+        font-family: var(--font-family-roman);
+    }
+a {
+    color: var(--cta-text);
+    text-decoration: underline;
+    font-size: 1.4rem;
+    font-family: var(--font-family-roman);
+}
+a:hover{
+            text-decoration: none;
+        }
+      @media only screen and (max-width: 768px) {
+        a:hover{
+            text-decoration: none;
+        }
+      }
+</style>
