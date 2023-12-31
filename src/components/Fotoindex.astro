@@ -1,35 +1,36 @@
 <section class="section1">
   <div class="instagram-section">
-    <h3>FØLG OS PÅ <a href="https://www.instagram.com/emc181223/?fbclid=IwAR3LWAhNyl5szc3xrlw96V0fCq_BlTzlEnw8uUXo3AGCLjDtNI2GcB9Q01E">@firstclasssecondhand</a></h3>
+    <h3>Få mere inspiration på <a href="https://www.instagram.com/emc181223/?fbclid=IwAR3LWAhNyl5szc3xrlw96V0fCq_BlTzlEnw8uUXo3AGCLjDtNI2GcB9Q01E">@firstclasssecondhand</a></h3>
     <section class="image-grid">
 
       <div class="grid-item">
         <img src="/img/insta/nye/nye_8/Maskgroup-1.webp" alt="Secondhand støvler">
+        <div class="overlay">
+          <a>Se på Instagram</a>
+        </div>
       </div>
-
+    
       <div class="grid-item">
         <img src="/img/insta/nye/nye_8/Maskgroup-2.webp" alt="Vintage blazer">
+        <div class="overlay">
+          <a>Se på Instagram</a>
+        </div>
       </div>
+    
       <div class="grid-item">
         <img src="/img/insta/nye/nye_8/Maskgroup-3.webp" alt="Vintage Acne strik">
+        <div class="overlay">
+          <a>Se på Instagram</a>
+        </div>
       </div>
+    
       <div class="grid-item">
         <img src="/img/insta/nye/nye_8/Maskgroup-4.webp" alt="Secondhand Hugo Boss taske">
+        <div class="overlay">
+          <a>Se på Instagram</a>
+        </div>
       </div>
-
-      <div class="grid-item" id="j">
-        <img src="/img/insta/nye/nye_8/Maskgroup-5.webp" alt="Vintage palietkjole">
-      </div>
-
-      <div class="grid-item" id="j">
-        <img src="/img/insta/nye/nye_8/Maskgroup-6.webp" alt="Secondhand Acne stiletter">
-      </div>
-      <div class="grid-item" id="j">
-        <img src="/img/insta/nye/nye_8/Maskgroup-7.webp" alt="Louis Vuitton taske">
-      </div>
-      <div class="grid-item" id="j">
-        <img src="/img/insta/nye/nye_8/Maskgroup.webp" alt="Vintage mink pelsjakke">
-      </div>
+    
     </section>
   </div>
 </section>
@@ -71,13 +72,13 @@
 }
 
 
-/* Skjul elementer med id 'j' på mindre skærme (initialt skjult) - de sidste 4 billeder */
-#j {
-  display: none;
-}
-
 @media screen and (min-width: 768px) {
 
+  h3{
+    font-size: 1.5rem;
+    font-family: var(--font-family-roman);
+    padding-bottom: 30px;
+  }
   .section1 {
     padding-top: 100px;
   }
@@ -87,7 +88,7 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 12px;
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
   }
   /* Vis elementer med id 'j' på større skærme - alle 8 billeder */
@@ -96,25 +97,55 @@
     display: block;
   }
 
-  /* højden på grid-elementer*/
-  .grid-item {
-    width: 100%;
-    height: 300px;
-    overflow: hidden;
-    position: relative;
-  }
-
-  /* Bevare objektfyldning for billederne på større skærme */
-  .grid-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
   .instagram-section {
     margin: 0 auto;
     padding-bottom: 20px;
-    max-width: 1200px;
+    max-width: 5400px;
   }
+  .image-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+.grid-item {
+  position: relative;
+  overflow: hidden;
+  height: 350px;
+}
+
+.grid-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: filter 0.3s ease-in-out;
+}
+
+.grid-item:hover img {
+  filter: brightness(70%); 
+}
+
+.overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.grid-item:hover .overlay {
+  opacity: 1;
+}
+
+.overlay a {
+  color: var(--cta-text);
+  font-size: 1.5rem;
+  text-decoration: underline;
+  font-family: var(--font-family-roman);
+}
 }
 </style>
