@@ -17,6 +17,7 @@ const data = await fetch(
 <section class="image-grid">
   {
     data
+    //vælger nogle key/id produkter som kommer op som relateret + linker til den rigtige item/produkt side i slug categori.
       .filter((item) => [15, 7, 13].includes(item.id))
       .map((item) => (
         <div class="grid-item" key={item.slug}>

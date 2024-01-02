@@ -3,6 +3,7 @@ import "/src/css/general.css";
 import Mainlayout from "../layouts/Mainlayout.astro";
 import Card from "../components/Card.astro";
 
+// Vent med at loade til alt er fetche
 const data = await fetch(
   "https://uiovvvgmjftrkbiogyqx.supabase.co/rest/v1/products?order=brand_front.asc",
   {
@@ -14,13 +15,14 @@ const data = await fetch(
     },
   }
 ).then(res => res.json());
+
 // Metadata til SEO
 const metadesc = "Opdag unikt vintage tøj – Køb og sælg secondhand online! Find kjoler, støvler, sko og mere."
 ---
 
 <!-- // Layout og indhold -->
 <Mainlayout title="SHOP" metadesc={metadesc}>
-    <!-- Filtrering af produkter -->
+    <!-- Filtrering af produkter - HTML -->
   <div class="filter">
     <a class="filterbutton active" data-filter="all">All</a>
     <span class="separator">|</span>
@@ -33,6 +35,7 @@ const metadesc = "Opdag unikt vintage tøj – Køb og sælg secondhand online! 
 
 <!-- Card-komponent for hvert produkt -->
     <section class="grid-container" id="articles-container">
+      <!-- Data fra supabase - Item er navnet på alt supabase data -efterfølgende tager id'et er keyen den skal tage/gå ud fra -->
       {data.map((item) => (
         <Card data={item} key={item.id} />
       ))}
@@ -40,10 +43,10 @@ const metadesc = "Opdag unikt vintage tøj – Køb og sælg secondhand online! 
 
        <!-- JavaScript til filtrering -->
   <script>
-    // Vælg alle elementer med klassen "filterbutton"
+    // Vælg alle elementer med klassen "filterbutton" - laver til en konstant
     const btns = document.querySelectorAll(".filterbutton");
     btns.forEach((btn) => {
-      // Tilføj en eventslistener til hver knap og kald filterBy-funktionen
+      // Tilføj en eventslistener til hver knap ved klik og kald filterBy-funktionen, når der klikkes
       btn.addEventListener("click", () => filterBy(btn));
     });
 
@@ -58,6 +61,8 @@ const metadesc = "Opdag unikt vintage tøj – Køb og sælg secondhand online! 
 
       // Filtrer artikler baseret på det valgte filter
       const cat = clickedBtn.dataset.filter;
+      // Vælger "article.grid-item" indenfra card og kalder den art.
+      // Hvis cat= all fjernes hide og "all" -alle kategorier vises.
       document.querySelectorAll("article.grid-item").forEach((art) => {
         if (art.dataset.category === cat || cat === "all") {
           art.classList.remove("hide");

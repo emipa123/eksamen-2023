@@ -3,7 +3,7 @@ import Mainlayout from "../../layouts/Mainlayout.astro";
 import Insta from "../../components/Insta.astro";
 import Related from "../../components/Related.astro";
 
-// funktion til at generere statiske stier og props baseret på API
+// funktion til at generere statiske stier og props baseret på API -getstaticpath -opretter en underside
 export async function getStaticPaths() {
   const data = await fetch(
     "https://uiovvvgmjftrkbiogyqx.supabase.co/rest/v1/products",
@@ -16,8 +16,10 @@ export async function getStaticPaths() {
     }
   ).then((response) => response.json());
 
+  // Kan ses i terminalen
   console.log("Data from API:", data);
 
+  // Trykker på fra listeview og laver en statsik underside ud fra det data der er i supabasen -String = teks. Params= tekst, props= navn (myData)
   return data.map((product) => {
     return {
       params: { slug: String(product.slug) },
@@ -50,7 +52,7 @@ const title = myData.brand;
 
     <div class="container">
       <div class="image-container">
-        <!-- billeder med alt-text -->
+        <!-- bruges til at give vores data fra supabase en alt text -+1 for at oprette en attribut -->
         {
           myData.images.map((image, index) => (
             <div id={`image-${index + 1}`} key={index}>

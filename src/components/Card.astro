@@ -2,9 +2,10 @@
 const {data}=Astro.props; 
 ---
 
+     <!-- article grid-item bruges i javascript i listevies til filtrerering (data-category)  -->
 <article class={`grid-item ${data.subsub_category}`} data-category={data.subsub_category}>
   
-     <!-- Billede fra databasen + alttext -->
+     <!-- Billede fra databasen + alttext, bliver vist enkeltvis -->
   <a href={`/products/${data.slug}`}>
       <img class="image" src={data.image} alt={data.alttext}>
     </a>
@@ -15,14 +16,15 @@ const {data}=Astro.props;
       </a>
       <!-- price = pris på produkt -->
       <h4 class="h4">{data.price} </h4>
+            <!-- && betyder "hvis ikke der" står souldout eller Sould Out så skal prisen vises-->
       {data.soldout_1 && (
         <h4 class="soldout">
           {data.soldout_1.toLowerCase() === "soldout" ? "Sold Out" : data.soldout_1}
         </h4>
       )}
-      <!-- // linket til produktet med en dynamisk slug. Viser "SHOP" hvis prisen ikke er markeret som "soldout". -->
+      <!-- // linket til produktet med en dynamisk slug. Vis "SHOP" hvis prisen ikke er markeret som "soldout". !== tjekker om den er true eller false, false=shopknap / true=ikke shopknap - KUNNE HAVE BRUGT IF-->
       {data.price && data.price.toLowerCase() !== "soldout" && (
-          // knap der linker til det gældende produkt 
+          // knap der linker til det gældende produkt -hvis prduktet ikke er soldout
         <button type="button" name="btn">
           <a class="knap" href={`/products/${data.slug}`}>
             <p>SHOP</p>
@@ -57,7 +59,7 @@ const {data}=Astro.props;
     button:hover p {
       color: white;
       }
-      /* id til javascript */
+      /* id til javascript til listeview */
       .hide {
         display: none;
       }
