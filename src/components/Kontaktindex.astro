@@ -24,7 +24,7 @@
   padding-bottom: 15px;
     }
     p{
-        font-size: 1.1rem;
+        font-size: 1rem;
         padding-bottom: 30px;
         font-family: var(--font-family-roman);
         color: var(--primary-text);
@@ -45,9 +45,12 @@ a {
 a:hover{
             text-decoration: none;
         }
-      @media only screen and (max-width: 768px) {
+      @media only screen and (min-width: 768px) {
         a:hover{
             text-decoration: none;
+        }
+        p{
+            font-size: 1.1rem;
         }
       }
 </style>

@@ -28,6 +28,7 @@
         text-align: center;
         align-self: center;
         padding-top: 40px;
+        padding: 10px;
     }
     .center-container {
   display: flex;
@@ -40,12 +41,12 @@
         gap: 60px;
     }
     .tal {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-family: var(--font-family-medium);
 }
 
 .tal-text {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-family: var(--font-family-medium);
 }
 
@@ -69,9 +70,18 @@ a {
 a:hover{
             text-decoration: none;
         }
-      @media only screen and (max-width: 768px) {
+      @media only screen and (min-width: 768px) {
         a:hover{
             text-decoration: none;
+        }
+        p{
+            font-size: 1.1rem;
+        }
+        .tal{
+            font-size: 2rem;
+        }
+        .tal-text{
+            font-size:1.2rem;
         }
       }
 </style>
