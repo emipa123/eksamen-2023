@@ -18,26 +18,30 @@
               </div>
             </div>
           </div>
-          <div class="link">
+          <div class="button">
     <a href="/about">Læs mere</a>
 </div>
     </div>
 </section>
 
 <style>
-    .sell-index{
+   section{
+    background-color: var(--cta-text);
+    padding-bottom: 50px;
+   }
+   .sell-index{
         align-items: center;
         text-align: center;
         align-self: center;
         padding-top: 40px;
         padding: 10px;
-        background-color: var(--cta-text);
         color: var(--secondary-color);
     }
     .center-container {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-top: 30px;
 }
     .grid1-1-1{
         display: grid;
@@ -64,22 +68,30 @@
         font-size: 1.1rem;
         padding-bottom: 30px;
     }
-a {
-    color: var(--secondary-color);
-    text-decoration: underline;
-    font-size: 1.3rem;
-    font-family: var(--font-family-roman);
 
-}
-.link{
-    padding-bottom: 50px;
-}
+
+a{
+      color: var(--secondary-color);
+      font-size: 1.2rem;
+      border: none;
+      padding: 6px 50px;
+      cursor: pointer;
+      margin-top: 50px;
+      background-color: transparent;
+      border: 1px solid var(--secondary-color);
+      }
+      .button{
+        padding-top: 30px;
+      }
+
 a:hover{
             text-decoration: none;
         }
       @media only screen and (min-width: 768px) {
         a:hover{
-            text-decoration: none;
+      background-color: var(--secondary-color);
+      color: var(--cta-text)  ; 
+      
         }
         p{
             font-size: 1.2rem;
