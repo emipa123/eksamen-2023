@@ -46,7 +46,7 @@
     .grid1-1-1{
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 60px;
+        gap: 0px;
     }
     .tal {
   font-size: 1.5rem;
@@ -84,9 +84,6 @@ a{
         padding-top: 30px;
       }
 
-a:hover{
-            text-decoration: none;
-        }
       @media only screen and (min-width: 768px) {
         a:hover{
       background-color: var(--secondary-color);
@@ -102,5 +99,10 @@ a:hover{
         .tal-text{
             font-size:1.3rem;
         }
+        .grid1-1-1{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 60px;
+    }
       }
 </style>
