@@ -1,9 +1,11 @@
 ---
+// Fetcher data - await= venter på at fetch fuldføres
 const data = await fetch(
   "https://uiovvvgmjftrkbiogyqx.supabase.co/rest/v1/products",
   {
     method: "GET",
     headers: {
+      // Tilføjer API nøgle til godkendelse
       apikey:
         "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVpb3Z2dmdtamZ0cmtiaW9neXF4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDExMTU1MzUsImV4cCI6MjAxNjY5MTUzNX0.K1gnnZYV5aWSc4jzhiX1H2-WIcr2JXnmrj1BylbJRf0",
     },
@@ -17,9 +19,10 @@ const data = await fetch(
 <section class="image-grid">
   {
     data
-    //vælger nogle key/id produkter som kommer op som relateret + linker til den rigtige item/produkt side i slug categori.
+    //vælger nogle produkter baseret på deres ID (i arrayet) + linker til den rigtige item/produkt side i slug categori.
       .filter((item) => [15, 7, 13, 10].includes(item.id))
       .map((item) => (
+           // HTML-kode for hvert produkt
         <div class="grid-item" key={item.slug}>
           <a href={`/products/${item.slug}`}>
             <img class="image" src={item.image} alt={item.alttext} />
@@ -37,6 +40,7 @@ const data = await fetch(
           </div>
         </div>
       ))
+      //Hvert produkt har en unik nøgle baseret på slug'en
   }
 </section>
 

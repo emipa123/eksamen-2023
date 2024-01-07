@@ -17,6 +17,7 @@ const {data}=Astro.props;
       <!-- price = pris på produkt -->
       <h4 class="h4">{data.price} </h4>
             <!-- && betyder "hvis ikke der" står souldout eller Sould Out så skal prisen vises-->
+            <!--Check om produktet er udsolgt, og vis "Sold Out" hvis det er tilfældet -->
       {data.soldout_1 && (
         <h4 class="soldout">
           {data.soldout_1.toLowerCase() === "soldout" ? "Sold Out" : data.soldout_1}
