@@ -20,9 +20,17 @@ const data = await fetch(
 <section class="image-grid">
   {
     data
-    //filtrer/vaælger nogle produkter baseret på deres ID (i arrayet) 
+    //filtrer vores items fra vores data 
+    // hent specifikt dem i array
+    //include tjekker, om item.id findes i den givne liste af id'er. 
+    //Hvis det gør det, vil det pågældende element blive inkluderet i den nye liste.
+    // => - arrowfunction
       .filter((item) => [15, 7, 13, 10].includes(item.id))
-       // map - tager fra database og skyder ud i html -div - key: den skal referer til slug i databasen, $-urlparamter + komme ind på den slug der er klikket på. - HTML-kode for hvert produkt
+
+       // map - tager hvert element (item) og skyder ud i html -div 
+       //for hvert item skal der laves en div med en class -det bruges key til 
+       //tildeler $-urlparamter + komme ind på den slug der er klikket på. 
+       //HTML-kode for hvert produkt
       .map((item) => (
         <div class="grid-item" key={item.slug}>
           <a href={`/products/${item.slug}`}>

@@ -55,7 +55,16 @@ const title = myData.brand;
 
     <div class="container">
       <div class="image-container">
-        <!-- bruges til at give vores data fra supabase en alt text -+1 for at oprette en attribut -->
+        <!-- Først mapper vi images fra supabase, 
+        formatet er url (links til hvor billederne er gemt) 
+        -aray af links i supabase skal mappes så de spyttes ud på site er det ikke billedlinks men billeder
+        index + 1 -de får alle hver deres div og ligge i
+        key-hvis der skal laves noget med javascript
+        -Så skal billederne omdannes fra url til reelle fotos 
+        "img src={image}" (som er tildelt når vi mapper) her: 
+         myData.images.map((image, index) =>
+        Overorndet bruges den til at vise alle vores billeder i arrayet i supabase
+   -->
         {
           myData.images.map((image, index) => (
             <div id={`image-${index + 1}`} key={index}>
@@ -85,6 +94,13 @@ const title = myData.brand;
 
           {
               // Vis kun knappen, hvis produktet ikke er udsolgt
+              //hvis my data er eksistere er det sandt
+              //derefter tjekker den om mydata er konverterert til små bogstaver
+              //Tjekker om prisen eksistere - hvis den ikke eksistere = soldout -uanset store eller små bogst
+              //&& sørger for at begge betignelser er sande for at fortsætte koden
+              //derefter vis køb knappen hvis den ikke er udsolgt.
+              //!== tjekker at værdierne på begge sider ikke er ens
+              // ville nok havde brugt if - else i stedet
             myData.price && myData.price.toLowerCase() !== "soldout" && (
               <button className="btn" type="button" name="btn">
                 <p>SHOP</p>
