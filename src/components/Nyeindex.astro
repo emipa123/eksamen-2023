@@ -1,5 +1,5 @@
 ---
-// Fetcher data - await= venter på at fetch fuldføres
+// Fetcher data - await= indholdet indlæses når al data er indhentet
       // Tilføjer API nøgle til godkendelse
 const data = await fetch(
   "https://uiovvvgmjftrkbiogyqx.supabase.co/rest/v1/products",
@@ -11,6 +11,7 @@ const data = await fetch(
     },
   }
 ).then((res) => res.json());
+//Så svar og så kommer svaret ud i JSON i din konsol - kan gå ud og tage fat i item
 ---
 
 <div class="tekst">
@@ -19,9 +20,9 @@ const data = await fetch(
 <section class="image-grid">
   {
     data
-    //vælger nogle produkter baseret på deres ID (i arrayet) + linker til den rigtige item/produkt side i slug categori.
-            // HTML-kode for hvert produkt
+    //filtrer/vaælger nogle produkter baseret på deres ID (i arrayet) 
       .filter((item) => [15, 7, 13, 10].includes(item.id))
+       // map - tager fra database og skyder ud i html -div - key: den skal referer til slug i databasen, $-urlparamter + komme ind på den slug der er klikket på. - HTML-kode for hvert produkt
       .map((item) => (
         <div class="grid-item" key={item.slug}>
           <a href={`/products/${item.slug}`}>

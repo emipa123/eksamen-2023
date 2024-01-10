@@ -237,22 +237,25 @@
 </style>
 
 <script>
+  // Vent på, at DOM'en er fuldt indlæst, før du udfører noget
   document.addEventListener("DOMContentLoaded", function () {
     const burgerContainer = document.querySelector(".burger-container");
     const navList = document.querySelector(".nav-list");
     const burgerIcon = document.querySelector(".burger-icon");
     const crossIcon = document.querySelector(".cross-icon");
 
+      // Funktion til at skifte mellem at vise/skjule menuen
     function toggleMenu() {
-      navList.classList.toggle("show");
-      burgerIcon.classList.toggle("show");
+      navList.classList.toggle("show"); // Tilføj/fjern klassen 'show' for at vise/skjule menuen
+      burgerIcon.classList.toggle("show"); // Skift visningen af burger-ikonet
       crossIcon.style.display = navList.classList.contains("show")
         ? "block"
-        : "none";
+        : "none"; //Skift visningen af krydsikonet baseret på menuens synlighed
     }
-
+  // Skjul krydsikonet som standard - kunne være fjernet?
     crossIcon.style.display = "none";
 
+      // Tilføj en klikbegivenhed til burgerContainer for at udløse toggleMenu-funktionen
     if (burgerContainer) {
       burgerContainer.addEventListener("click", toggleMenu);
     }
