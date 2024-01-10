@@ -3,7 +3,7 @@ import "/src/css/general.css";
 import Mainlayout from "../layouts/Mainlayout.astro";
 import Card from "../components/Card.astro";
 
-// Vent med at loade til alt er fetche
+// Oretter konstant i den fecthers der -Vent med at loade til alt er fetche - fetch hente data fra vores url
 const data = await fetch(
   "https://uiovvvgmjftrkbiogyqx.supabase.co/rest/v1/products?order=brand_front.asc",
   {
@@ -15,6 +15,9 @@ const data = await fetch(
     },
   }
 ).then(res => res.json());
+//Syntax - callback - specificere at den skal svare når så skal den vise os dataen
+// => - arrowfunction
+
 
 // Metadata til SEO
 const metadesc = "Opdag unikt vintage tøj – Køb og sælg secondhand online! Find kjoler, støvler, sko og mere."

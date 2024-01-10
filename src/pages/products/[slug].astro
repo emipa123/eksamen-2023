@@ -16,6 +16,8 @@ export async function getStaticPaths() {
       },
     }
   ).then((response) => response.json());
+//Syntax - callback - specificere at den skal svare når så skal den vise os dataen
+// => - arrowfunction
 
   // Kan ses i terminalen
   console.log("Data from API:", data);
